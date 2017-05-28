@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div style="text-align: center;">
+        <p class="lead">Categories</p>
+        <ul class="list-group">
+            {% for category in categories %}
+                <li class="list-group-item">Category: <b>{{ category.name}}</b>       <a href="/categories/list/{{ category.id }}" class="btn btn-default btn-sm ">Delete Category</a>
+            {% endfor %}
+                    <br>
+                    <br>
+                    <br>
+                    <div class="container">
+                        <a href="/category/add" class="btn btn-primary btn-lg btn-block">Add Category</a>
+                    </div>
+        </ul>
+    </div>
+{% endblock %}

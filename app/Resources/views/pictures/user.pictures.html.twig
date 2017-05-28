@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+    <div class="well well-sm">
+        <div style="text-align: center;">
+            <strong>My Pictures</strong>
+        </div>
+    </div>
+    {% for picture in pictures %}
+        <div class="well well-sm">
+            <div style="text-align: center;">
+                <img  style="width:400px;height:400px;" class="group list-group-image" src="/images/picture/{{ picture.image }}" alt=""/>
+            </div>
+            <h4 class="group inner list-group-item-heading">{{ picture.name }}</h4>
+            <p class="group inner list-group-item-text">{{ picture.description }}</p>
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    <h5>{{ picture.dateCreated|date("m/d/Y  H:i:s") }}</h5> <br>
+                    <h5>{{ picture.category}}</h5>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div style="text-align: center;">
+        <p class="lead">Users</p>
+            <ul class="list-group">
+                    {% for user in users%}
+                        <li class="list-group-item">Username: <b>{{ user.username }}</b> <a href="/users/list/{{ user.id }}" class="btn btn-default btn-sm ">Delete User</a></li>
+                    {% endfor %}
+            </ul>
+    </div>
+{% endblock %}

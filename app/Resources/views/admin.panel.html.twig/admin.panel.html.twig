@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div style="text-align: center;">
+    <h1>Welcome To Admin Panel</h1>
+    </div>
+        <div class="well">
+            <div class="container">
+            <br>
+            <a href="/users/list" class="btn btn-primary btn-lg btn-block">See All Users</a>
+            <br>
+                <a href="/categories/list" class="btn btn-primary btn-lg btn-block">See All Categories</a>
+
+                <br>
+                <a href="/admin/pictures/list" class="btn btn-primary btn-lg btn-block">See All Pictures</a>
+            </div>
+            <br>
+    <div style="text-align: center;">
+    <img src="https://cdn.edureka.co/blog/wp-content/uploads/2015/02/Duties-of-a-Linux-Administrator.png" width="600" height="250">
+    </div>
+        </div>
+{% endblock %}

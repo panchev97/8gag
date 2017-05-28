@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-3">
+                <p class="lead">Categories</p>
+                <div class="list-group">
+                    {% for category in categories %}
+                        <a href="/category/pictures/{{ category.id }}" class="list-group-item">{{ category.name }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="col-md-9">
+
+                <div class="row carousel-holder">
+
+                    <div class="col-md-12">
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <img class="slide-image" src="https://s-media-cache-ak0.pinimg.com/originals/b3/7f/24/b37f240668750a286e6191a224bcb300.jpg" alt="">
+                                </div>
+                                <div class="item">
+                                    <img class="slide-image" src="http://files.explosm.net/comics/Rob/bloodyguy.png" alt="">
+                                </div>
+                                <div class="item">
+                                    <img class="slide-image" src="https://s-media-cache-ak0.pinimg.com/originals/06/17/02/06170286b0a64397754d8501d35ec266.png" alt="">
+                                </div>
+                            </div>
+                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                            </a>
+                        </div>
+                        <br>
+                    </div>
+
+                </div>
+                <div style="text-align: center;">
+                    <div class="well well-lg"><b>Our Motto:</b> <i><u>Make Fun Of Others And Don't Worry About That</u>  ;)</i></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}
