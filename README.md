@@ -1,4 +1,4 @@
-8gag - Post the funniest pics you have a& share them with other people
+8gag - Post the funniest pics you have & share them with other people
 =========
 
 # Setting up the project locally
