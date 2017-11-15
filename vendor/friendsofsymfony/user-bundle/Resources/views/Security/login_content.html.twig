@@ -1,0 +1,75 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">8gag Web Site</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                {% if app.user %}
+                {% if is_granted('ROLE_SUPER_ADMIN') %}
+                    <li>
+                        <a href="/admin">Admin Panel</a>
+                    </li>
+                {% endif %}
+                <li>
+                    <a href="/home">Home</a>
+                </li>
+                <li>
+                    <a href="/pictures/list">All Pictures</a>
+                </li>
+                <li>
+                    <a href="/user/pictures">My Pictures</a>
+                </li>
+                <li>
+                    <a href="/picture/add">Upload Picture</a>
+                </li>
+                <li>
+                    <a href="/logout">Logout</a>
+                </li>
+                {% else %}
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/login">Login</a>
+                </li>
+                <li>
+                    <a href="/register">Sign Up</a>
+                </li>
+
+            </ul>
+            {% endif %}
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+{% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+
+<form action="{{ path("fos_user_security_check") }}" method="post" style="margin-top: 100px;">
+    {% if csrf_token %}
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+    {% endif %}
+
+    <label for="username">{{ 'Username'|trans }}</label>
+    <input class="form-control" type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+
+    <label for="password">{{ 'Password'|trans }}</label>
+    <input class="form-control" type="password" id="password" name="_password" required="required" />
+
+    <label for="remember_me">{{ 'Remember Me'|trans }}</label>
+    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+
+    <input class="btn btn-lg btn-default btn-block" type="submit" id="_submit" name="_submit" value="{{ 'Login'|trans }}" />
+</form>

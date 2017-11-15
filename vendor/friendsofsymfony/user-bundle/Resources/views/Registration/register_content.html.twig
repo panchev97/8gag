@@ -1,0 +1,65 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">8gag Web Site</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                {% if app.user %}
+                {% if is_granted('ROLE_SUPER_ADMIN') %}
+                    <li>
+                        <a href="/admin">Admin Panel</a>
+                    </li>
+                {% endif %}
+                <li>
+                    <a href="/home">Home</a>
+                </li>
+                <li>
+                    <a href="/pictures/list">All Pictures</a>
+                </li>
+                <li>
+                    <a href="/user/pictures">My Pictures</a>
+                </li>
+                <li>
+                    <a href="/picture/add">Upload Picture</a>
+                </li>
+                <li>
+                    <a href="/logout">Logout</a>
+                </li>
+                {% else %}
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/login">Login</a>
+                </li>
+                <li>
+                    <a href="/register">Sign Up</a>
+                </li>
+
+            </ul>
+            {% endif %}
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<div class="container">
+    {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}, 'attr': {'style': '    margin-top: 100px'}}) }}
+    {{ form_widget(form) }}
+    <div>
+        <input class="btn btn-block btn-default" type="submit" value="{{ 'Register'|trans }}" />
+    </div>
+    {{ form_end(form) }}
+
+</div>
