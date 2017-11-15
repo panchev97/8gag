@@ -16,7 +16,7 @@
         <default key="_controller">FOSUserBundle:Registration:confirm</default>
     </route>
 
-    <route id="fos_user_registration_confirmed" path="/confirmed" methods="GET">
+    <route id="fos_user_registration_confirmed" path="/home" methods="GET">
         <default key="_controller">FOSUserBundle:Registration:confirmed</default>
     </route>
 
