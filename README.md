@@ -1,4 +1,7 @@
-.checkout
+8gag - Post the funniest pics you have a& share them with other people
 =========
 
-A Symfony project created on May 4, 2017, 8:10 am.
+# Setting up the project locally
+##### 1. Clone the repository - "git clone https://github.com/panchev97/8gag.git"
+##### 2.  Run "composer install" command and set your database parameters
+####
